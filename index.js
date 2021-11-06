@@ -10,8 +10,8 @@ const PORT = process.env.PORT || 5000; //use theirs or use 5000
 
 //API key pk_8ea99c28ba4444ab94f489185aeccca1 
 // create a function that maps the output
-function call_api(finishedAPI,ticker){
-    request('https://cloud.iexapis.com/stable/stock/fb/quote?token=pk_8ea99c28ba4444ab94f489185aeccca1',{json:true},(err,res,body)=>{
+function call_api(finishedAPI,stock_ticker){
+    request(`https://cloud.iexapis.com/stable/stock/${stock_ticker}/quote?token=pk_8ea99c28ba4444ab94f489185aeccca1`,{json:true},(err,res,body)=>{
         if(err){return console.log(err);}
         if (res.statusCode===200){
             finishedAPI(body);
